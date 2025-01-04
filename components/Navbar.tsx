@@ -108,7 +108,7 @@ export default function Navbar() {
           onClick={handleNavItemClick}>
           <Image
             className='dark'
-            src='/logo.PNG'
+            src='/public/logo.png'
             alt='logo'
             width={60}
             height={60}
