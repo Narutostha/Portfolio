@@ -1,0 +1,46 @@
+import React from 'react';
+
+import { FaApple, FaDocker, FaCode } from 'react-icons/fa'; // Replaced missing icon with FaCode
+import {
+  SiHeroku,
+  SiLinux,
+  SiPostman,
+  SiVercel,
+} from 'react-icons/si';
+
+function Toolstack() {
+  return (
+    <div className='flex flex-wrap justify-center gap-6 pb-12'>
+      <div className='flex h-16 w-16 flex-col items-center'>
+        <FaApple className='text-4xl text-gray-800 dark:text-gray-200' />
+        <p className='mt-2 text-gray-700 dark:text-gray-300'>MacOS</p>
+      </div>
+      <div className='flex h-16 w-16 flex-col items-center'>
+        <SiLinux className='text-4xl text-gray-800 dark:text-gray-200' />
+        <p className='mt-2 text-gray-700 dark:text-gray-300'>Linux</p>
+      </div>
+      <div className='flex h-16 w-16 flex-col items-center'>
+        <FaCode className='text-4xl text-gray-800 dark:text-gray-200' /> {/* Replaced missing icon */}
+        <p className='mt-2 text-gray-700 dark:text-gray-300'>VS Code</p>
+      </div>
+      <div className='flex h-16 w-16 flex-col items-center'>
+        <FaDocker className='text-4xl text-gray-800 dark:text-gray-200' />
+        <p className='mt-2 text-gray-700 dark:text-gray-300'>Docker</p>
+      </div>
+      <div className='flex h-16 w-16 flex-col items-center'>
+        <SiPostman className='text-4xl text-gray-800 dark:text-gray-200' />
+        <p className='mt-2 text-gray-700 dark:text-gray-300'>Postman</p>
+      </div>
+      <div className='flex h-16 w-16 flex-col items-center'>
+        <SiVercel className='text-4xl text-gray-800 dark:text-gray-200' />
+        <p className='mt-2 text-gray-700 dark:text-gray-300'>Vercel</p>
+      </div>
+      <div className='flex h-16 w-16 flex-col items-center'>
+        <SiHeroku className='text-4xl text-gray-800 dark:text-gray-200' />
+        <p className='mt-2 text-gray-700 dark:text-gray-300'>Heroku</p>
+      </div>
+    </div>
+  );
+}
+
+export default Toolstack;

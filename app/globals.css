@@ -1,0 +1,727 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    scroll-behavior: smooth;
+
+    /* Light Mode Colors */
+    --background: 270 100% 98%;
+    /* Very light purple with a white base */
+    --foreground: 270 10% 15%;
+    /* Darker purple for text */
+
+    --card: 270 100% 98%;
+    /* Same as background */
+    --card-foreground: 270 10% 15%;
+
+    --popover: 270 100% 98%;
+    --popover-foreground: 270 10% 15%;
+
+    --primary: 270 20% 30%;
+    /* Muted medium purple */
+    --primary-foreground: 270 100% 98%;
+    /* Light text color for contrast */
+
+    --secondary: 270 100% 90%;
+    /* Light lavender */
+    --secondary-foreground: 270 20% 30%;
+
+    --muted: 270 100% 95%;
+    /* Muted light purple */
+    --muted-foreground: 270 10% 40%;
+    /* Softer text color for muted elements */
+
+    --accent: 270 100% 95%;
+    /* Light purple accent */
+    --accent-foreground: 270 20% 30%;
+
+    --destructive: 0 84.2% 60.2%;
+    /* Red for destructive elements */
+    --destructive-foreground: 0 0% 98%;
+    /* Light text for destructive actions */
+
+    --border: 270 20% 90%;
+    /* Light border with a hint of purple */
+    --input: 270 20% 90%;
+    /* Same as border */
+    --ring: 270 20% 30%;
+    /* Slightly darker purple ring for focus elements */
+
+    --radius: 0.5rem;
+
+    --chart-1: 12 76% 61%;
+    /* Chart colors */
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    /* Dark Mode Colors */
+    --background: 252 22% 10%;
+    /* #0B0A21 - Dark Purple */
+    --foreground: 0 0% 98%;
+    /* Light foreground color for contrast */
+
+    --card: 252 22% 10%;
+    /* Same dark purple for card background */
+    --card-foreground: 0 0% 98%;
+
+    --popover: 252 22% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 252 10% 98%;
+    /* Light text or highlight on primary elements */
+    --primary-foreground: 252 22% 10%;
+    /* Dark background for buttons etc. */
+
+    --secondary: 252 22% 15%;
+    /* Slightly lighter than the background */
+    --secondary-foreground: 0 0% 98%;
+    /* Light text color for secondary elements */
+
+    --muted: 252 22% 15%;
+    /* Muted dark purple */
+    --muted-foreground: 0 0% 63.9%;
+    /* Slightly muted text for muted elements */
+
+    --accent: 252 22% 15%;
+    /* Darker accent */
+    --accent-foreground: 0 0% 98%;
+    /* Light text for accent elements */
+
+    --destructive: 0 62.8% 30.6%;
+    /* Red for destructive actions */
+    --destructive-foreground: 0 0% 98%;
+    /* Light foreground */
+
+    --border: 252 22% 15%;
+    /* Darker purple border */
+    --input: 252 22% 15%;
+    /* Same dark border for inputs */
+    --ring: 252 22% 83.1%;
+    /* Brighter focus ring for input elements */
+
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* --------- */
+/*Scrollbar   */
+/* --------- */
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #2d1950;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(178, 121, 216, 0.959);
+  border-radius: 12px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(222, 130, 235, 0.911);
+  border-radius: 12px;
+}
+
+/* Navbar Section */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+  padding: 0.6rem 1.5rem;
+  font-size: 1rem;
+  transition:
+    background-color 0.3s ease-out,
+    box-shadow 0.3s ease-out;
+}
+
+.navbar.scrolled {
+  background-color: #114248aa;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.navbar-logo {
+  border-radius: 50%;
+}
+
+.navbar-brand-name {
+  margin-left: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #0b0a21;
+}
+
+.text-glow {
+  text-shadow:
+    0 0 10px rgba(255, 255, 255, 0.8),
+    0 0 20px rgba(255, 255, 255, 0.6);
+  color: #ffffff;
+}
+
+.luxury-text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  color: #f8f8f8;
+  text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.3),
+    0 1px 5px rgba(0, 0, 0, 0.15);
+  transition:
+    color 0.3s ease,
+    text-shadow 0.3s ease;
+}
+
+.luxury-text:hover {
+  color: #d4af37;
+  /* Gold color */
+  text-shadow: 0 1px 8px rgba(255, 215, 0, 0.8);
+}
+
+.navbar-toggler {
+  display: none;
+  position: relative;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.navbar-toggler .bar {
+  display: block;
+  background: #391c36;
+  height: 3px;
+  width: 30px;
+  margin: 6px 0;
+  transition:
+    transform 0.35s ease-in-out,
+    opacity 0.35s ease-in-out;
+}
+
+.navbar-toggler.active .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.navbar-toggler.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-toggler.active .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.nav-link {
+  padding: 0.8rem 1.2rem;
+  color: #dadada;
+  text-decoration: none;
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease;
+  position: relative;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-link:hover {
+  color: #4e2547;
+  background-color: rgba(78, 37, 71, 0.1);
+}
+
+.nav-link svg {
+  margin-right: 0.5rem;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: #4e2547;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.github-button {
+  display: flex;
+  align-items: center;
+  background-color: #4e2547;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.github-button:hover {
+  background-color: #391c36;
+  transform: scale(1.05);
+}
+
+.github-star {
+  margin-left: 0.5rem;
+  animation: pulse 2s infinite;
+}
+
+.github-star-text {
+  margin-left: 0.5rem;
+  display: none;
+}
+
+.github-button:hover .github-star-text {
+  display: inline;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar {
+    padding: 1rem 2rem;
+    font-size: 1.4rem;
+    background-color: #114248aa;
+  }
+
+  .navbar-toggler {
+    display: block;
+  }
+
+  .navbar-nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #114248aa;
+  }
+
+  .navbar-nav.flex {
+    display: flex;
+  }
+
+  .nav-link {
+    padding: 0.7rem 1rem;
+    color: #0b0a21;
+    text-align: center;
+  }
+
+  .github-button {
+    margin-top: 1rem;
+  }
+}
+
+/* --------- */
+/* Enhanced ButtonWithParticles Styles */
+/* --------- */
+
+@keyframes customFloat {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+
+  25% {
+    transform: translateY(-10px) translateX(10px);
+  }
+
+  50% {
+    transform: translateY(0) translateX(20px);
+  }
+
+  75% {
+    transform: translateY(10px) translateX(10px);
+  }
+}
+
+@keyframes customGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 30px rgba(99, 179, 237, 0.5);
+  }
+
+  50% {
+    box-shadow: 0 0 50px rgba(99, 179, 237, 0.8);
+  }
+}
+
+@property --k {
+  syntax: '<number>';
+  initial-value: -1;
+  inherits: true;
+}
+
+@keyframes k {
+  0%,
+  33.3% {
+    --k: 1;
+  }
+}
+
+.particle {
+  --f: 1;
+  --pos-k: max(0, var(--k));
+  --neg-k: max(0, -1 * var(--k));
+  --low-c: min(1, 4 * (1 - var(--pos-k)));
+  --abs-d: max(var(--neg-k) - 0.5, 0.5 - var(--neg-k));
+  --mov-f: var(--pos-k);
+  display: grid;
+  width: 0.75em;
+  aspect-ratio: 1;
+  animation: k calc(var(--m, 1) * 1s) linear
+    calc(var(--m, 1) * var(--t, 0) * 1s) infinite;
+  position: absolute;
+  /* Ensure particles are positioned absolutely */
+  font-size: calc(var(--d) * 0.1);
+  color: #bad9fa;
+  left: var(--x);
+  top: var(--y);
+  opacity: 0;
+  /* Initial state for opacity */
+  animation: particleMove calc(var(--m, 1) * 3s) forwards;
+  /* Updated animation for movement */
+  animation-delay: calc(var(--m, 1) * var(--t, 0) * 3s);
+}
+
+@keyframes particleMove {
+  0% {
+    transform: translate(calc(var(--x) * -1), calc(var(--y) * -1)) scale(0);
+    opacity: 1;
+    /* Start with opacity 1 for visibility */
+  }
+
+  50% {
+    opacity: 1;
+    /* Keep particles visible */
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0;
+    /* Fade out at the end of the animation */
+  }
+}
+
+.particle::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(at 85% 85%, #bad9fa, #3e66a4 75%);
+  border-radius: 50%;
+  transform: scale(var(--f, 1));
+  opacity: 0.7;
+}
+
+input[type='checkbox'] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid #a78bfa;
+  border-radius: 0.25rem;
+  background-color: transparent;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+
+input[type='checkbox']:checked {
+  background-color: #a78bfa;
+}
+
+input[type='checkbox']:checked::after {
+  content: '✓';
+  font-size: 1rem;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.particle-button {
+  position: relative;
+  padding: 1.5rem 2.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f2fdfe;
+  background: radial-gradient(#111a39, 67.5%, #3476da);
+  border-radius: 9999px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.particle-button:hover {
+  transform: scale(1.05);
+}
+
+.particle-button:active {
+  transform: scale(0.95);
+}
+
+.button-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(#a0c2ed, 35%, transparent 70%);
+  background-size: 80% 50%;
+  background-position: 50% 0;
+  background-repeat: repeat-y;
+  opacity: 0.5;
+}
+
+.particle-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+/* --------- */
+/* Home section */
+/* --------- */
+.wave {
+  animation-name: wave-animation;
+  /* Refers to the name of your @keyframes element below */
+  animation-duration: 6.1s;
+  /* Change to speed up or slow down */
+  animation-iteration-count: infinite;
+  /* Never stop waving :) */
+  transform-origin: 70% 70%;
+  /* Pivot around the bottom-left palm */
+  display: inline-block;
+}
+
+@keyframes wave-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  10% {
+    transform: rotate(14deg);
+  }
+
+  /* The following five values can be played with to make the waving more or less extreme */
+  20% {
+    transform: rotate(-8deg);
+  }
+
+  30% {
+    transform: rotate(14deg);
+  }
+
+  40% {
+    transform: rotate(-4deg);
+  }
+
+  50% {
+    transform: rotate(10deg);
+  }
+
+  60% {
+    transform: rotate(0deg);
+  }
+
+  /* Reset for the last half to pause */
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+#tsparticles {
+  position: fixed !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  width: 100%;
+  height: 100%;
+}
+
+.home-header {
+  padding-top: 80px !important;
+}
+
+.home-section {
+  position: relative;
+  z-index: -1;
+  background-position: top center;
+  background-repeat: no-repeat;
+  padding-bottom: 40px !important;
+  padding-top: 40px !important;
+}
+
+.home-content {
+  padding: 9rem 0 2rem !important;
+  color: whitesmoke;
+  text-align: left;
+}
+
+.heading {
+  font-size: 2.4em !important;
+  padding-left: 50px !important;
+}
+
+.heading-name {
+  font-size: 2.5em !important;
+  padding-left: 45px !important;
+}
+
+.main-name {
+  background: linear-gradient(90deg, #fbb52d, #ff8c00);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientText 5s ease infinite;
+  display: inline;
+  font-weight: 600;
+}
+
+.Typewriter__cursor {
+  font-size: 1em !important;
+  color: #006c65 !important;
+}
+
+.myAvtar {
+  justify-content: center !important;
+  padding-top: 9em !important;
+}
+
+@media (max-width: 767px) {
+  .myAvtar {
+    padding-top: 2em !important;
+    padding-bottom: 2em !important;
+  }
+}
+
+/* --------- */
+/* Footer */
+/* --------- */
+footer {
+  background-color: #1f2937;
+  color: #d1d5db;
+  font-family: 'Inter', sans-serif;
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+  padding: 2rem 1rem;
+  transition: padding 0.3s ease;
+}
+
+footer h3 {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+footer .text-xl {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+footer .text-lg {
+  font-size: 1.125rem;
+  font-weight: 400;
+}
+
+footer .space-y-8 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+footer .space-x-6,
+footer .space-x-8 {
+  display: flex;
+  gap: 1.5rem;
+}
+
+footer .space-x-8 {
+  gap: 2rem;
+}
+
+footer .transition-transform {
+  transition:
+    transform 0.4s ease,
+    color 0.3s ease;
+}
+
+footer .transform:hover {
+  transform: scale(1.25);
+  color: #fbbf24;
+  /* Gold color on hover for icons */
+}
+
+@media (max-width: 767px) {
+  footer {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  footer h3 {
+    font-size: 1.5rem;
+  }
+
+  footer .text-xl {
+    font-size: 1.375rem;
+  }
+}
+
+@media (min-width: 768px) {
+  footer {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
