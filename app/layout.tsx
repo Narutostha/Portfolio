@@ -15,7 +15,7 @@ const inter = Inter({
   preload: true
 });
 
-const DOMAIN = 'https://www.imartin.dev';
+const DOMAIN = 'https://reyahamshrestha.vercel.app/';
 
 export const metadata: Metadata = {
   metadataBase: new URL(DOMAIN),
@@ -158,13 +158,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
 
-        {/* Cookie Script */}
-        <Script
-          src='//cdn.cookie-script.com/s/27a1e4f6bdc2bd98f6d922cb116a0b70.js'
-          strategy='afterInteractive'
-          type='text/javascript'
-          charSet='UTF-8'
-        />
+        
 
         {/* Umami Analytics Script */}
         {process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID && (

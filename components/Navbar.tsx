@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
+
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { FadeIn } from '@/components/magicui/fade-in';
@@ -106,14 +106,7 @@ export default function Navbar() {
           href='/'
           className='navbar-brand'
           onClick={handleNavItemClick}>
-          <Image
-            className='dark'
-            src='/public/logo.png'
-            alt='logo'
-            width={60}
-            height={60}
-            priority
-          />
+          
           <span className='navbar-brand-name luxury-text'>Reyaham</span>
         </Link>
         <button
